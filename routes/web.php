@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticuloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/articulo', function () {
+//     return view('articulo.index');
+// });
+
+// Route::get('/articulo/create',  [ArticuloController::class, 'create']);
+
+Route::resource('articulo', ArticuloController::class);

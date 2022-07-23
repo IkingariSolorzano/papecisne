@@ -1,0 +1,76 @@
+-- --------------------------------------------------------
+-- Host:                         localhost
+-- Versión del servidor:         5.7.24 - MySQL Community Server (GPL)
+-- SO del servidor:              Win64
+-- HeidiSQL Versión:             10.2.0.5599
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Volcando estructura para tabla papeleria.categorias
+CREATE TABLE IF NOT EXISTS `categorias` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_categoria` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla papeleria.categorias: ~44 rows (aproximadamente)
+DELETE FROM `categorias`;
+/*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
+INSERT INTO `categorias` (`id`, `nombre_categoria`, `descripcion`, `created_at`, `updated_at`) VALUES
+	(1, 'ACCESORIOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(2, 'AGENDAS Y DIRECTORIOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(3, 'ARTICULOS DE TEMPORADA', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(4, 'BANDERAS DE PAPEL', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(5, 'BLOCK', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(6, 'CALCOMANIAS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(7, 'CALCULADORAS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(8, 'CARTULINAS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(9, 'CIERRES', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(10, 'CINTAS ADHESIVAS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(11, 'COLORANTES', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(12, 'COLORES', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(13, 'COSMETICOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(14, 'CRAYONES', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(15, 'CUADERNOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(16, 'DECORACION', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(17, 'DISCOS Y MEMORIAS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(18, 'DULCES Y CHOCOLATES', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(19, 'ENMICADOS Y ENGARGOLADOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(20, 'ENTRETENIMIENTO', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(21, 'ESCOLAR', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(22, 'ESCRITURA', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(23, 'FIESTA', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(24, 'FOAMY', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(25, 'FORMATOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(26, 'GALLETAS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(27, 'LIBROS Y CUENTOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(28, 'MANUALIDADES', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(29, 'MAPAS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(30, 'MAQUETAS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(31, 'MARCADORES Y RESALTADORES', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(32, 'MERCERIA', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(33, 'MONOGRAFIAS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(34, 'NAVIDEÑOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(35, 'OFICINA', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(36, 'PAPELES', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(37, 'PASTELILLOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(38, 'PEGAMENTOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(39, 'PINTURA', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(40, 'PORTADOCUMENTOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(41, 'REFRESCOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(42, 'REGALOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(43, 'SERVICIOS', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00'),
+	(44, 'SOBRES', '', '2022-07-23 13:42:00', '2022-07-23 13:42:00');
+/*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
