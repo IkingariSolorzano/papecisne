@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Articulo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticuloController extends Controller
 {
@@ -26,7 +27,9 @@ class ArticuloController extends Controller
      */
     public function create()
     {
-        return view('articulo.create');
+        $datos['categorias'] = DB::table('categorias')->get();
+        $datos['marcas'] = DB::table('marcas')->get();
+        return view('articulo.create', $datos);
     }
 
     /**
@@ -39,7 +42,7 @@ class ArticuloController extends Controller
     {
         $datosArticulo = $request->except('_token');
         Articulo::insert($datosArticulo);
-        return response()->json($datosArticulo);
+        return redirect('articulo');
     }
 
     /**

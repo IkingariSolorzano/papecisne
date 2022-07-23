@@ -21,19 +21,17 @@
    <label for="categoria">Categoria</label>
    <input list="categoria" name="categoria_id">
    <datalist id="categoria">
-      <option value="1"></option>
-      <option value="2"></option>
-      <option value="3"></option>
-      <option value="4"></option>
+      @foreach($categorias as $categoria)
+      <option value="{{$categoria->id}}" >{{$categoria->nombre_categoria}}</option>
+      @endforeach
    </datalist>
    <br>
    <label for="marca">marca</label>
    <input list="marca" name="marca_id">
    <datalist id="marca">
-      <option value="5"></option>
-      <option value="6"></option>
-      <option value="7"></option>
-      <option value="8"></option>
+      @foreach($marcas as $marca)
+      <option value="{{$marca->id}}" >{{$marca->nombre_marca}}</option>
+      @endforeach
    </datalist>
    <br>
    <label for="precioCompra">Precio de Compra</label>
