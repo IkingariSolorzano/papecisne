@@ -16,7 +16,7 @@ class ArticuloController extends Controller
     public function index()
     {
 
-        $datos['articulos'] = Articulo::orderBy('id', 'desc')->paginate(5);
+        $datos['articulos'] = Articulo::orderBy('id', 'desc')->paginate(50);
         return view('articulo.index', $datos);
     }
 
@@ -27,6 +27,7 @@ class ArticuloController extends Controller
      */
     public function create()
     {
+        $datos['articulos']=new Articulo;
         $datos['categorias'] = DB::table('categorias')->get();
         $datos['marcas'] = DB::table('marcas')->get();
         return view('articulo.create', $datos);
@@ -39,9 +40,13 @@ class ArticuloController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        // $request->validate([
+        //     'codigo_barras' => []
+        // ])
         $datosArticulo = $request->except('_token');
         Articulo::insert($datosArticulo);
+        // return response()->json($datosArticulo);
         return redirect('articulo');
     }
 
@@ -62,9 +67,12 @@ class ArticuloController extends Controller
      * @param  \App\Models\Articulo  $articulo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Articulo $articulo)
+    public function edit($id)
     {
-        return view('articulo.edit');
+        $datos['articulos'] = Articulo::findOrFail($id);
+        $datos['categorias'] = DB::table('categorias')->get();
+        $datos['marcas'] = DB::table('marcas')->get();
+        return view('articulo.edit', $datos);
     }
 
     /**
@@ -74,9 +82,11 @@ class ArticuloController extends Controller
      * @param  \App\Models\Articulo  $articulo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Articulo $articulo)
+    public function update(Request $request, $id)
     {
-        //
+        $datosArticulo = request()->except(['_token', '_method']);
+        Articulo::where('id', $id)->update($datosArticulo);
+        return redirect('articulo');
     }
 
     /**

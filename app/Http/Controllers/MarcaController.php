@@ -14,7 +14,9 @@ class MarcaController extends Controller
      */
     public function index()
     {
-        //
+
+        $datos['marcas'] = Marca::orderBy('id', 'desc')->paginate(50);
+        return view('marca.marca', $datos);
     }
 
     /**
@@ -24,7 +26,8 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        //
+        $datos['marcas'] = new Marca;
+        return view('marca.create', $datos);
     }
 
     /**
@@ -35,7 +38,13 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'codigo_barras' => []
+        // ])
+        $datosmarca = $request->except('_token');
+        Marca::insert($datosmarca);
+        // return response()->json($datosmarca);
+        return redirect('marca');
     }
 
     /**
@@ -55,9 +64,10 @@ class MarcaController extends Controller
      * @param  \App\Models\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function edit(Marca $marca)
+    public function edit($id)
     {
-        //
+        $datos['marcas'] = Marca::findOrFail($id);
+        return view('marca.edit', $datos);
     }
 
     /**
@@ -67,9 +77,11 @@ class MarcaController extends Controller
      * @param  \App\Models\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Marca $marca)
+    public function update(Request $request, $id)
     {
-        //
+        $datos = request()->except(['_token', '_method']);
+        Marca::where('id', $id)->update($datos);
+        return redirect('marca');
     }
 
     /**
@@ -78,8 +90,9 @@ class MarcaController extends Controller
      * @param  \App\Models\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Marca $marca)
+    public function destroy($id)
     {
-        //
+        marca::destroy($id);
+        return redirect('marca');
     }
 }

@@ -14,7 +14,9 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+
+        $datos['categorias'] = categoria::orderBy('id', 'desc')->paginate(50);
+        return view('categoria.categoria', $datos);
     }
 
     /**
@@ -24,7 +26,8 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        $datos['categorias'] = new categoria;
+        return view('categoria.create', $datos);
     }
 
     /**
@@ -35,16 +38,22 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'codigo_barras' => []
+        // ])
+        $datoscategoria = $request->except('_token');
+        categoria::insert($datoscategoria);
+        // return response()->json($datoscategoria);
+        return redirect('categoria');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Categoria  $categoria
+     * @param  \App\Models\categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function show(Categoria $categoria)
+    public function show(categoria $categoria)
     {
         //
     }
@@ -52,34 +61,38 @@ class CategoriaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Categoria  $categoria
+     * @param  \App\Models\categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categoria $categoria)
+    public function edit($id)
     {
-        //
+        $datos['categorias'] = categoria::findOrFail($id);
+        return view('categoria.edit', $datos);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Categoria  $categoria
+     * @param  \App\Models\categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, $id)
     {
-        //
+        $datoscategoria = request()->except(['_token', '_method']);
+        categoria::where('id', $id)->update($datoscategoria);
+        return redirect('categoria');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Categoria  $categoria
+     * @param  \App\Models\categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categoria $categoria)
+    public function destroy($id)
     {
-        //
+        categoria::destroy($id);
+        return redirect('categoria');
     }
 }
