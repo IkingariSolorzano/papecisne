@@ -25,20 +25,20 @@
         <tbody>
             @foreach ($articulos as $articulo)
             <tr>
-                <td scope="row">{{ $articulo ->id }}</td>
-                <td>{{ $articulo-> codigo_barras }}</td>
-                <td>{{$articulo->clave_articulo}}</td>
-                <td><b>{{$articulo->nombre_articulo }}</b></td>
-                <td><b>$ {{$articulo->precio_publico}}</b></td>
-                <td>{{$articulo->presentacion}}</td>
-                <td>{{$articulo->contenido}}</td>
-                <td>{{$articulo->categoria_id}}</td>
-                <td>{{$articulo->marca_id}}</td>
-                <td>{{$articulo->precio_compra}}</td>
-                <td>
-                    <a href="{{ url('/articulo/'.$articulo->id.'/edit') }}" |>Editar</a>
+                <td class="fs-6 fw-ligh" scope="row">{{ $articulo ->articulo_id }}</td>
+                <td class="fs-6 fw-ligh">{{ $articulo-> codigo_barras }}</td>
+                <td class="fs-6 fw-ligh">{{$articulo->clave_articulo}}</td>
+                <td class="fs-5 fw-ligh"><b class="text-success">{{$articulo->nombre_articulo }}</b></td>
+                <td class="fs-5 fw-ligh"><b class="text-danger">$ {{$articulo->precio_publico}}</b></td>
+                <td class="fs-6 fw-ligh">{{$articulo->presentacion}}</td>
+                <td class="fs-6 fw-ligh">{{$articulo->contenido}}</td>
+                <td class="fs-6 fw-ligh">{{$articulo->nombre_categoria}}</td>
+                <td class="fs-6 fw-ligh">{{$articulo->nombre_marca}}</td>
+                <td class="fs-6 fw-ligh">{{$articulo->precio_compra}}</td>
+                <td class="fs-6 fw-ligh">
+                    <a href="{{ url('/articulo/'.$articulo->articulo_id.'/edit') }}" |>Editar</a>
 
-                    <form action="{{url('/articulo/'.$articulo->id) }}" method="POST">
+                    <form action="{{url('/articulo/'.$articulo->articulo_id) }}" method="POST">
                         @csrf
                         {{ method_field("DELETE") }}
                         <input type="submit" value="Borrar"
