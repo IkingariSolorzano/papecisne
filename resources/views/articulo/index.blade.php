@@ -1,12 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <h2>Este es el index de papelería</h2>
     <div class="container">
         <a href="{{ url('/articulo/create')}}"><button type="button" class="btn btn-primary btn-lg">Crear nuevo
                 Artículo</button></a>
     </div>
-    <table class="table">
+    <table class="table table-sm">
         <thead>
             <tr>
                 <th>ID</th>
@@ -28,8 +27,8 @@
                 <td class="fs-6 fw-ligh" scope="row">{{ $articulo ->articulo_id }}</td>
                 <td class="fs-6 fw-ligh">{{ $articulo-> codigo_barras }}</td>
                 <td class="fs-6 fw-ligh">{{$articulo->clave_articulo}}</td>
-                <td class="fs-5 fw-ligh"><b class="text-success">{{$articulo->nombre_articulo }}</b></td>
-                <td class="fs-5 fw-ligh"><b class="text-danger">$ {{$articulo->precio_publico}}</b></td>
+                <td class="fs-6 fw-ligh"><b class="text-success">{{$articulo->nombre_articulo }}</b></td>
+                <td class="fs-6 fw-ligh"><b class="text-danger">$ {{$articulo->precio_publico}}</b></td>
                 <td class="fs-6 fw-ligh">{{$articulo->presentacion}}</td>
                 <td class="fs-6 fw-ligh">{{$articulo->contenido}}</td>
                 <td class="fs-6 fw-ligh">{{$articulo->nombre_categoria}}</td>

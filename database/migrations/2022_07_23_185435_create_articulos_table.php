@@ -14,7 +14,7 @@ class CreateArticulosTable extends Migration
     public function up()
     {
         Schema::create('articulos', function (Blueprint $table) {
-            $table->id();
+            $table->id('articulo_id');
             $table->mediumInteger('clave_articulo')->nullable();
             $table->string('codigo_barras')->nullable();
             $table->string('nombre_articulo');

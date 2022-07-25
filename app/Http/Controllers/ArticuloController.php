@@ -16,7 +16,7 @@ class ArticuloController extends Controller
     public function index()
     {
 
-        $datos['articulos'] = Articulo::join('categorias', 'articulos.categoria_id', '=', 'categorias.id')->join('marcas', 'articulos.marca_id', '=', 'marcas.id')->orderBy('articulo_id', 'desc')->paginate(25);
+        $datos['articulos'] = Articulo::leftJoin('categorias', 'articulos.categoria_id', '=', 'categorias.id')->leftJoin('marcas', 'articulos.marca_id', '=', 'marcas.id')->orderBy('articulo_id', 'desc')->paginate(10);
         // dd($datos);
         return view('articulo.index', $datos);
     }
